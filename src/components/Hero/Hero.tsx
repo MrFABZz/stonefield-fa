@@ -31,7 +31,7 @@ export const Hero = () => {
     }, 30)
 
     return () => clearInterval(timer)
-  }, [])
+  }, [config.api?.cfxApiUrl, config.api?.refreshInterval, config.api?.serverCode, config.server])
 
   // Fetch live player data from CFX.re API
   useEffect(() => {
@@ -88,7 +88,7 @@ export const Hero = () => {
   const interval = setInterval(fetchPlayerData, config.api?.refreshInterval ?? 60000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [config.api?.cfxApiUrl, config.api?.refreshInterval, config.api.serverCode, config.server])
 
   useGSAP(() => {
     if (!isLoading) {
@@ -159,8 +159,8 @@ export const Hero = () => {
           <div className="w-96 max-w-full mx-auto mb-8">
             <div className="progress-bar">
               <div 
-                className="h-full bg-gta-gold transition-all duration-300"
-                style={{ width: `${loadingProgress}%` }}
+                className={`h-full bg-gta-gold transition-all duration-300 progress-bar-fill`}
+                data-progress={loadingProgress}
               />
             </div>
             <p className="text-gta-light text-sm mt-2">Loading... {loadingProgress}%</p>
