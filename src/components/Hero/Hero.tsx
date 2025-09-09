@@ -7,12 +7,6 @@ import { getAssetUrl } from '../../utils/assetUrl'
 
 export const Hero = () => {
   const config: SiteConfig = siteConfig as SiteConfig;
-  // Dépendances extraites pour le useEffect
-  const apiCfxUrl = config.api?.cfxApiUrl ?? '';
-  const apiRefreshInterval = config.api?.refreshInterval ?? 60000;
-  const apiServerCode = config.api?.serverCode ?? '';
-  const serverConfig = config.server ?? null;
-  const config: SiteConfig = siteConfig as SiteConfig;
   // Dépendances extraites pour le useEffect (une seule déclaration)
   const apiCfxUrl = config.api?.cfxApiUrl ?? '';
   const apiRefreshInterval = config.api?.refreshInterval ?? 60000;
@@ -42,7 +36,7 @@ export const Hero = () => {
     }, 30)
 
     return () => clearInterval(timer)
-  }, [config.api?.cfxApiUrl, config.api?.refreshInterval, config.api?.serverCode, config.server])
+  }, [])
 
   // Fetch live player data from CFX.re API
   useEffect(() => {
@@ -56,15 +50,23 @@ export const Hero = () => {
       }
 
       try {
+        const apiUrl = config.api?.cfxApiUrl ?? '';
+        const serverCode = config.api?.serverCode ?? '';
+        const fullUrl = apiUrl && serverCode ? `${apiUrl}${serverCode}` : '';
+        if (!fullUrl) {
+          setIsServerOnline(false);
+          setPlayerCount(0);
+          return;
+        }
         const response = await fetch(
-          `${config.api?.cfxApiUrl ?? ''}${config.api?.serverCode ?? ''}`,
+          fullUrl,
           {
             method: 'GET',
             headers: {
               'Accept': 'application/json',
             }
           }
-        )
+        );
         
         if (response.ok) {
           const data = await response.json()
