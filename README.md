@@ -1,7 +1,17 @@
 # 🚀 REWORK Swisser-Web  
 *Version revisitée du modèle de site web pour serveur FiveM RP*  
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## ⚠️ Téléchargement  
+
+❌ **Ne pas télécharger depuis ce dépôt pour le moment !**  
+Le projet est encore en **travaux** et sera mis à jour progressivement.  
+
+➡️ Pour utiliser une version stable en attendant, vous pouvez la retrouver sur le site officiel :  
+🔗 [swisser.dev](https://swisser.dev)  
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 📖 Description courte  
 
@@ -35,12 +45,4 @@ Pour la documentation complète et toutes les fonctionnalités, consultez le sit
 | **Support**              | [Discord Server](https://swisser.dev) |
 | **Lignes de code**       | ≈ 5.000+ |
 
----
 
-## ⚠️ Téléchargement  
-
-❌ **Ne pas télécharger depuis ce dépôt pour le moment !**  
-Le projet est encore en **travaux** et sera mis à jour progressivement.  
-
-➡️ Pour utiliser une version stable en attendant, vous pouvez la retrouver sur le site officiel :  
-🔗 [swisser.dev](https://swisser.dev)  
