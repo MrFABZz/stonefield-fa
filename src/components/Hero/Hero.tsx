@@ -7,6 +7,17 @@ import { getAssetUrl } from '../../utils/assetUrl'
 
 export const Hero = () => {
   const config: SiteConfig = siteConfig as SiteConfig;
+  // Dépendances extraites pour le useEffect
+  const apiCfxUrl = config.api?.cfxApiUrl ?? '';
+  const apiRefreshInterval = config.api?.refreshInterval ?? 60000;
+  const apiServerCode = config.api?.serverCode ?? '';
+  const serverConfig = config.server ?? null;
+  const config: SiteConfig = siteConfig as SiteConfig;
+  // Dépendances extraites pour le useEffect (une seule déclaration)
+  const apiCfxUrl = config.api?.cfxApiUrl ?? '';
+  const apiRefreshInterval = config.api?.refreshInterval ?? 60000;
+  const apiServerCode = config.api?.serverCode ?? '';
+  const serverConfig = config.server ?? null;
   const containerRef = useRef<HTMLDivElement>(null)
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -82,13 +93,16 @@ export const Hero = () => {
     }
 
     // Initial fetch
-    fetchPlayerData()
+    fetchPlayerData();
 
     // Set up interval for periodic updates
-  const interval = setInterval(fetchPlayerData, config.api?.refreshInterval ?? 60000)
+    const interval = setInterval(
+      fetchPlayerData,
+      apiRefreshInterval
+    );
 
-    return () => clearInterval(interval)
-  }, [config.api?.cfxApiUrl, config.api?.refreshInterval, config.api.serverCode, config.server])
+    return () => clearInterval(interval);
+  }, [apiCfxUrl, apiRefreshInterval, apiServerCode, serverConfig]);
 
   useGSAP(() => {
     if (!isLoading) {
