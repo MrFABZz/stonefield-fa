@@ -1,0 +1,184 @@
+{
+  "seo": {
+    "title": "STONEFIELD FA – FiveM RP sérieux (Semi WL • Base US)",
+    "shortTitle": "STONEFIELD FA",
+    "description": "Serveur FiveM FA (Semi WL) basé US : RP sérieux et immersif, économie vivante, staff réactif. Rejoignez STONEFIELD FA dès maintenant.",
+    "keywords": [
+      "FiveM",
+      "STONEFIELD",
+      "GTA V",
+      "Roleplay",
+      "RP sérieux",
+      "Semi WL",
+      "Serveur FA",
+      "Stonefield RP"
+    ],
+    "ogImage": "/images/og-stonefield.jpg",
+    "twitterCard": "summary_large_image",
+    "twitterHandle": "@stonefieldfa",
+    "favicon": "/favicon.ico",
+    "themeColor": "#0A192F",
+    "locale": "fr_FR",
+    "url": "https://stonefield-fa.com"
+  },
+
+  "legal": {
+    "companyName": "STONEFIELD FA",
+    "contact": "Support via Discord uniquement : https://discord.gg/cSyhHxcN3c",
+    "lastUpdated": "2025-09-09",
+    "minAge": 16,
+    "copyrightYear": 2025,
+    "dataRetention": {
+      "characterData": "6 mois d'inactivité",
+      "chatLogs": "30 jours",
+      "connectionLogs": "90 jours",
+      "banRecords": "Permanent"
+    }
+  },
+
+  "server": {
+    "name": "STONEFIELD FA",
+    "tagline": "FA • Base US • Semi WL • RP sérieux",
+    "description": "Un serveur FiveM immersif basé US. Semi WL pour accueillir tous profils, avec une économie vivante et un staff réactif.",
+    "ip": "cfx.re/join/qepry6",
+    "port": "30120",
+    "discord": "https://discord.gg/cSyhHxcN3c",
+    "maxPlayers": 256,
+    "logo": {
+      "type": "image",
+      "content": "/images/logo-stonefield.png"
+    },
+    "loadingTips": [
+      "Toujours rester en immersion RP",
+      "Respectez les autres joueurs et le staff",
+      "Rejoignez le Discord pour les annonces",
+      "Le RP qualitatif est toujours récompensé"
+    ]
+  },
+
+  "features": [
+    {
+      "id": "custom-framework",
+      "title": "Scripts modernes (OX)",
+      "description": "Base optimisée, UI propres, performance au top",
+      "icon": "Code2"
+    },
+    {
+      "id": "voice-chat",
+      "title": "Voix & radios",
+      "description": "Proximité claire + systèmes radio immersifs",
+      "icon": "Mic"
+    },
+    {
+      "id": "economy",
+      "title": "Économie vivante",
+      "description": "Marché porté par les joueurs, prix réalistes",
+      "icon": "DollarSign"
+    },
+    {
+      "id": "housing",
+      "title": "Logements & props",
+      "description": "Propriétés et personnalisation RP",
+      "icon": "Home"
+    },
+    {
+      "id": "vehicles",
+      "title": "Véhicules & handling",
+      "description": "Parc varié avec comportements crédibles",
+      "icon": "Car"
+    },
+    {
+      "id": "events",
+      "title": "Événements réguliers",
+      "description": "Animations staff & events communautaires",
+      "icon": "Calendar"
+    }
+  ],
+
+  "gallery": {
+    "images": [
+      { "id": 1, "src": "/images/gallery/1.jpg", "alt": "Skyline nocturne", "title": "Stonefield Downtown", "category": "locations" },
+      { "id": 2, "src": "/images/gallery/2.jpg", "alt": "Course poursuite", "title": "Intervention LSPD", "category": "action" },
+      { "id": 3, "src": "/images/gallery/3.jpg", "alt": "Car meet", "title": "Rassemblement auto", "category": "events" },
+      { "id": 4, "src": "/images/gallery/4.jpg", "alt": "Street race", "title": "Street Racing", "category": "events" },
+      { "id": 5, "src": "/images/gallery/5.jpg", "alt": "Scène RP braquage", "title": "Heist RP", "category": "roleplay" },
+      { "id": 6, "src": "/images/gallery/6.jpg", "alt": "Événement communautaire", "title": "Community Night", "category": "events" },
+      { "id": 7, "src": "/images/gallery/7.jpg", "alt": "Imports & customs", "title": "Custom Rides", "category": "vehicles" },
+      { "id": 8, "src": "/images/gallery/8.jpg", "alt": "Événement serveur", "title": "Special Event", "category": "events" }
+    ]
+  },
+
+  "jobs": {
+    "categories": [
+      { "id": "emergency", "name": "Services d’urgence", "color": "red" },
+      { "id": "civilian", "name": "Civils", "color": "blue" },
+      { "id": "criminal", "name": "Illégal", "color": "purple" },
+      { "id": "business", "name": "Entreprises", "color": "green" }
+    ],
+    "list": [
+      { "id": "police", "name": "LSPD", "category": "emergency", "description": "Protéger et servir la ville", "requirements": ["18+ ans", "Casier vierge", "Entretien"], "image": "/images/jobs/police.jpg" },
+      { "id": "ems", "name": "EMS", "category": "emergency", "description": "Sauver des vies et soigner", "requirements": ["16+ ans", "Formation médicale", "Actif"], "image": "/images/jobs/ems.jpg" },
+      { "id": "mechanic", "name": "Mécano", "category": "civilian", "description": "Réparer et customiser des véhicules", "requirements": ["Aucune", "Formation interne"], "image": "/images/jobs/mechanic.jpg" },
+      { "id": "taxi", "name": "Taxi", "category": "civilian", "description": "Transporter les citoyens", "requirements": ["Permis valide", "Conduite propre"], "image": "/images/jobs/taxi.jpg" },
+      { "id": "dealer", "name": "Dealer", "category": "criminal", "description": "Réseau et distribution illégale", "requirements": ["Réputation de rue", "Affiliation"], "image": "/images/jobs/dealer.jpg" },
+      { "id": "lawyer", "name": "Avocat", "category": "business", "description": "Conseil et défense juridique", "requirements": ["Barreau", "Casier OK"], "image": "/images/jobs/lawyer.jpg" }
+    ]
+  },
+
+  "rules": [
+    { "id": "rdm", "title": "Pas de RDM", "description": "Aucun kill sans raison RP valable" },
+    { "id": "vdm", "title": "Pas de VDM", "description": "Un véhicule n’est pas une arme sans RP" },
+    { "id": "metagaming", "title": "Pas de Metagaming", "description": "Infos hors-RP interdites en RP" },
+    { "id": "powergaming", "title": "Pas de Powergaming", "description": "Toujours laisser une chance de réagir" },
+    { "id": "respect", "title": "Respect", "description": "Respect des joueurs et du staff" }
+  ],
+
+  "team": [
+    { "id": "misteur-faabbzzz", "name": "Misteur FAABBZZz", "role": "Fondateur", "avatar": "/images/team/misteur.png", "discord": "faabbzzz", "description": "Créateur & lead dev" },
+    { "id": "staff", "name": "Équipe Staff", "role": "Modération", "avatar": "/images/team/staff.png", "discord": "staff", "description": "Encadrement et support" }
+  ],
+
+  "api": {
+    "serverCode": "qepry6",
+    "cfxApiUrl": "https://servers-frontend.fivem.net/api/servers/single/",
+    "refreshInterval": 30000,
+    "_comment": "Le bouton Connect utilise fivem://connect/qepry6 via ce code."
+  },
+
+  "social": {
+    "discord": "https://discord.gg/cSyhHxcN3c",
+    "twitter": "",
+    "youtube": "https://youtube.com/@stonefieldfa",
+    "tiktok": "https://tiktok.com/@stonefieldfa",
+    "instagram": "https://instagram.com/stonefieldfa",
+    "twitch": "https://twitch.tv/stonefieldfa"
+  },
+
+  "whitelist": {
+    "enabled": false,
+    "applicationUrl": "",
+    "requirements": []
+  },
+
+  "donations": {
+    "enabled": true,
+    "currency": "EUR",
+    "packages": [
+      {
+        "name": "Supporter",
+        "price": 5,
+        "perks": ["Badge Supporter Discord", "Nom affiché sur le site"]
+      },
+      {
+        "name": "VIP",
+        "price": 15,
+        "perks": ["Badge VIP", "File d'attente prioritaire", "Nom affiché sur le site"]
+      },
+      {
+        "name": "Partenaire",
+        "price": 30,
+        "perks": ["Badge Partenaire", "File prioritaire", "Nom sur site", "Avantage cosmétique RP (véhicule ou tenue unique)"]
+      }
+    ]
+  }
+}
