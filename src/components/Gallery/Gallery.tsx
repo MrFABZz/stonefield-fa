@@ -113,7 +113,7 @@ export const Gallery = () => {
               <span className="gradient-text">Gallery</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Capture the best moments from our server
+              Découvrez les meilleurs moments du serveur
             </p>
           </div>
 
@@ -158,6 +158,7 @@ export const Gallery = () => {
           onClick={() => setSelectedImage(null)}
         >
           <button
+            title="Previous image"
             onClick={(e) => {
               e.stopPropagation()
               handlePrevious()
@@ -168,6 +169,7 @@ export const Gallery = () => {
           </button>
 
           <button
+            title="Next image"
             onClick={(e) => {
               e.stopPropagation()
               handleNext()
@@ -178,6 +180,7 @@ export const Gallery = () => {
           </button>
 
           <button
+            title="Close gallery"
             onClick={() => setSelectedImage(null)}
             className="absolute top-4 right-4 p-2 text-white/70 hover:text-neon-cyan transition-colors"
           >

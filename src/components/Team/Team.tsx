@@ -139,10 +139,10 @@ export const Team = () => {
             ref={titleRef}
             className="text-4xl md:text-6xl font-gaming font-bold mb-4"
           >
-            <span className="gradient-text">Our Team</span>
+            <span className="gradient-text">Notre équipe</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Meet the dedicated team behind the server
+            Découvrez l'équipe dédiée derrière le serveur
           </p>
         </div>
 
@@ -151,8 +151,7 @@ export const Team = () => {
           {siteConfig.team.map((member) => (
             <div
               key={member.id}
-              className="team-card group"
-              style={{ perspective: '1000px' }}
+              className="team-card group perspective-1000"
             >
               <div className="card-inner relative transform-gpu transition-transform duration-300">
                 <div className="card-cyber h-full text-center relative overflow-hidden">
@@ -210,14 +209,14 @@ export const Team = () => {
         {/* Join Team CTA */}
         <div className="mt-16 text-center">
           <div className="inline-block">
-            <p className="text-gray-400 mb-4">Want to join our team?</p>
+            <p className="text-gray-400 mb-4">Envie de rejoindre l'équipe ?</p>
             <a 
               href={siteConfig.social.discord}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
             >
-              Apply on Discord
+              Postule sur Discord
             </a>
           </div>
         </div>

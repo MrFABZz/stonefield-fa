@@ -137,7 +137,7 @@ export const PrivacyPolicy = () => {
                 <p>We use the collected information for the following purposes:</p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
                   <li>Provide and maintain server functionality</li>
-                  <li>Enforce server rules and prevent cheating</li>
+                  <li>Faire respecter les règles du serveur et prévenir la triche</li>
                   <li>Process whitelist applications</li>
                   <li>Investigate rule violations and appeals</li>
                   <li>Improve gameplay experience and balance</li>
@@ -345,7 +345,7 @@ export const PrivacyPolicy = () => {
             <div className="card-gta mt-12 text-center bg-gradient-to-br from-gta-dark to-gta-graphite">
               <h2 className="text-2xl font-bebas text-white mb-4">Have Questions?</h2>
               <p className="text-gta-light mb-6">
-                We're committed to transparency. Contact our team for any privacy concerns.
+                Nous sommes engagés pour la transparence. Contactez notre équipe pour toute question liée à la vie privée.
               </p>
               <a 
                 href={social.discord}
