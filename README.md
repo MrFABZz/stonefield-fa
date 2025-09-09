@@ -42,7 +42,6 @@ Pour la documentation complète et toutes les fonctionnalités, consultez le sit
 | **Code accessible**      | ✅ Oui |
 | **Frameworks supportés** | ESX / Qbox / QBCore / Custom |
 | **Dépendances**          | [ox_lib](https://overextended.dev/) |
-| **Support**              | [Discord Server](https://swisser.dev) |
-| **Lignes de code**       | ≈ 5.000+ |
+| **Preview**              | *(à venir)* |
 
 
