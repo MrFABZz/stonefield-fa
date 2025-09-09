@@ -2,8 +2,10 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Shield, Database, Lock, Eye, Users, Globe, Cookie, AlertCircle } from 'lucide-react'
 import siteConfig from '../../config/site.config.json'
-
+import type { SiteConfig } from '../../types/site-config'
 export const PrivacyPolicy = () => {
+  const config: SiteConfig = siteConfig as SiteConfig;
+  const legal = config.legal || {};
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -42,7 +44,7 @@ export const PrivacyPolicy = () => {
               Privacy Policy
             </h1>
             <p className="text-xl text-gta-light">
-              Last updated: {new Date(siteConfig.legal.lastUpdated).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+              Last updated: {legal.lastUpdated ? new Date(legal.lastUpdated).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : 'N/A'}
             </p>
           </div>
 
@@ -206,23 +208,23 @@ export const PrivacyPolicy = () => {
                   <tbody className="text-sm">
                     <tr className="border-b border-gta-dark">
                       <td className="py-2">Character Data</td>
-                      <td className="py-2">{siteConfig.legal.dataRetention.characterData}</td>
+                      <td className="py-2">{legal.dataRetention?.characterData ?? ''}</td>
                     </tr>
                     <tr className="border-b border-gta-dark">
                       <td className="py-2">Chat Logs</td>
-                      <td className="py-2">{siteConfig.legal.dataRetention.chatLogs}</td>
+                      <td className="py-2">{legal.dataRetention?.chatLogs ?? ''}</td>
                     </tr>
                     <tr className="border-b border-gta-dark">
                       <td className="py-2">Connection Logs</td>
-                      <td className="py-2">{siteConfig.legal.dataRetention.connectionLogs}</td>
+                      <td className="py-2">{legal.dataRetention?.connectionLogs ?? ''}</td>
                     </tr>
                     <tr className="border-b border-gta-dark">
                       <td className="py-2">Ban Records</td>
-                      <td className="py-2">{siteConfig.legal.dataRetention.banRecords}</td>
+                      <td className="py-2">{legal.dataRetention?.banRecords ?? ''}</td>
                     </tr>
                     <tr className="border-b border-gta-dark">
                       <td className="py-2">Whitelist Applications</td>
-                      <td className="py-2">{siteConfig.legal.dataRetention.whitelistApplications}</td>
+                      <td className="py-2">{legal.dataRetention?.whitelistApplications ?? ''}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -293,8 +295,15 @@ export const PrivacyPolicy = () => {
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
                   <li>Discord: Create a privacy ticket in #support</li>
-                  <li>Email: {siteConfig.legal.privacyEmail}</li>
-                  <li>Data Protection Officer: {siteConfig.legal.dpoEmail}</li>
+                  {legal.privacyEmail && (
+                    <li>Email: <a href={`mailto:${legal.privacyEmail}`}>{legal.privacyEmail}</a></li>
+                  )}
+                  {legal.dpoEmail && (
+                    <li>DPO: <a href={`mailto:${legal.dpoEmail}`}>{legal.dpoEmail}</a></li>
+                  )}
+                  {!legal.privacyEmail && !legal.dpoEmail && (
+                    <li>Support via Discord</li>
+                  )}
                 </ul>
                 <p className="mt-4">
                   Response time: Within 48 hours for general inquiries, 30 days for formal requests.
@@ -307,7 +316,7 @@ export const PrivacyPolicy = () => {
               <h2 className="text-3xl font-bebas text-white mb-4">Children's Privacy</h2>
               <div className="space-y-4 text-gta-light">
                 <p>
-                  Our server is not intended for children under {siteConfig.legal.minAge}. We do not knowingly collect 
+                  Our server is not intended for children under {legal.minAge ?? '16'}. We do not knowingly collect 
                   personal information from children under 16. If we discover such information 
                   has been collected, we will delete it immediately.
                 </p>
@@ -332,20 +341,22 @@ export const PrivacyPolicy = () => {
           </div>
 
           {/* Footer CTA */}
-          <div className="card-gta mt-12 text-center bg-gradient-to-br from-gta-dark to-gta-graphite">
-            <h2 className="text-2xl font-bebas text-white mb-4">Have Questions?</h2>
-            <p className="text-gta-light mb-6">
-              We're committed to transparency. Contact our team for any privacy concerns.
-            </p>
-            <a 
-              href={siteConfig.social.discord}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-gta-gold inline-block"
-            >
-              Contact Privacy Team
-            </a>
-          </div>
+          {(() => { const social = config.social || {}; return (
+            <div className="card-gta mt-12 text-center bg-gradient-to-br from-gta-dark to-gta-graphite">
+              <h2 className="text-2xl font-bebas text-white mb-4">Have Questions?</h2>
+              <p className="text-gta-light mb-6">
+                We're committed to transparency. Contact our team for any privacy concerns.
+              </p>
+              <a 
+                href={social.discord}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gta-gold inline-block"
+              >
+                Contact Privacy Team
+              </a>
+            </div>
+          )})()}
         </div>
       </div>
     </div>

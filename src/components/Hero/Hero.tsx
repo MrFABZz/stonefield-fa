@@ -2,9 +2,11 @@ import { useRef, useEffect, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import { gsap, ScrollTrigger } from '../../lib/gsap-config'
 import siteConfig from '../../config/site.config.json'
+import type { SiteConfig } from '../../types/site-config'
 import { getAssetUrl } from '../../utils/assetUrl'
 
 export const Hero = () => {
+  const config: SiteConfig = siteConfig as SiteConfig;
   const containerRef = useRef<HTMLDivElement>(null)
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -35,7 +37,7 @@ export const Hero = () => {
   useEffect(() => {
     const fetchPlayerData = async () => {
       // Skip if no server code configured
-      if (!siteConfig.api.serverCode || siteConfig.api.serverCode === 'replaceme') {
+  if (!config.api?.serverCode || config.api.serverCode === 'replaceme') {
         console.warn('No server code configured. Please set your CFX.re server code in site.config.json')
         setPlayerCount(Math.floor(Math.random() * 50) + 10)
         setIsServerOnline(false)
@@ -44,7 +46,7 @@ export const Hero = () => {
 
       try {
         const response = await fetch(
-          `${siteConfig.api.cfxApiUrl}${siteConfig.api.serverCode}`,
+          `${config.api?.cfxApiUrl ?? ''}${config.api?.serverCode ?? ''}`,
           {
             method: 'GET',
             headers: {
@@ -58,13 +60,12 @@ export const Hero = () => {
           // CFX.re API returns data in Data.players array
           if (data.Data && Array.isArray(data.Data.players)) {
             const playerCount = data.Data.players.length
-            const maxPlayers = data.Data.sv_maxclients || siteConfig.server.maxPlayers
             setPlayerCount(playerCount)
             setIsServerOnline(true)
             
             // Optional: Update max players from server data
-            if (data.Data.sv_maxclients) {
-              siteConfig.server.maxPlayers = data.Data.sv_maxclients
+            if (data.Data.sv_maxclients && config.server) {
+              config.server.maxPlayers = data.Data.sv_maxclients
             }
           } else {
             throw new Error('Invalid response format')
@@ -84,7 +85,7 @@ export const Hero = () => {
     fetchPlayerData()
 
     // Set up interval for periodic updates
-    const interval = setInterval(fetchPlayerData, siteConfig.api.refreshInterval)
+  const interval = setInterval(fetchPlayerData, config.api?.refreshInterval ?? 60000)
 
     return () => clearInterval(interval)
   }, [])
@@ -210,22 +211,22 @@ export const Hero = () => {
             <div ref={contentRef}>
               <div className="mb-8">
                 <h1 className="text-5xl md:text-7xl font-bebas text-white mb-2">
-                  {siteConfig.server.name}
+                  {config.server?.name}
                 </h1>
                 <p className="text-xl text-gta-gold font-inter">
-                  {siteConfig.server.tagline}
+                  {config.server?.tagline}
                 </p>
               </div>
 
               <p className="text-gta-light mb-8 text-lg leading-relaxed">
-                {siteConfig.server.description}
+                {config.server?.description}
               </p>
 
               {/* Server Stats */}
               <div ref={statsRef} className="grid grid-cols-2 gap-4 mb-8">
                 <div className="stat-item">
                   <p className="stat-label">Players Online</p>
-                  <p className="stat-value">{playerCount}/{siteConfig.server.maxPlayers}</p>
+                  <p className="stat-value">{playerCount}/{config.server?.maxPlayers ?? 0}</p>
                 </div>
                 <div className="stat-item">
                   <p className="stat-label">Server Status</p>
@@ -235,7 +236,7 @@ export const Hero = () => {
                 </div>
                 <div className="stat-item">
                   <p className="stat-label">Active Jobs</p>
-                  <p className="stat-value">{siteConfig.jobs.list.length}+</p>
+                  <p className="stat-value">{config.jobs?.list?.length ?? 0}+</p>
                 </div>
                 <div className="stat-item">
                   <p className="stat-label">Uptime</p>
@@ -246,22 +247,22 @@ export const Hero = () => {
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href={`fivem://connect/${siteConfig.api.serverCode}`}
+                  href={`fivem://connect/${config.api?.serverCode ?? ''}`}
                   className="btn-gta inline-block text-center"
                 >
                   Connect to Server
                 </a>
                 <a 
-                  href={siteConfig.server.discord}
+                  href={config.server?.discord}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-gta-outline"
                 >
                   Join Discord
                 </a>
-                {siteConfig.whitelist.enabled && (
+                {config.whitelist?.enabled && (
                   <a 
-                    href={siteConfig.whitelist.applicationUrl}
+                    href={config.whitelist?.applicationUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-gta-gold"
@@ -276,10 +277,10 @@ export const Hero = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-gta-light text-sm">Server Address</p>
-                    <p className="text-white font-mono text-lg">{siteConfig.server.ip}</p>
+                    <p className="text-white font-mono text-lg">{config.server?.ip}</p>
                   </div>
                   <button 
-                    onClick={() => navigator.clipboard.writeText(siteConfig.server.ip)}
+                    onClick={() => navigator.clipboard.writeText(config.server?.ip ?? '')}
                     className="px-4 py-2 bg-gta-dark hover:bg-gta-medium transition-colors rounded"
                   >
                     Copy IP

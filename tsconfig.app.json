@@ -16,22 +16,14 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    {
-  "compilerOptions": {
-    ...
-    "noUnusedLocals": false,      // ← false
-    "noUnusedParameters": false,  // ← false
-    ...
-  }
-}
 
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+  /* Linting */
+  "strict": true,
+  "noUnusedLocals": true,
+  "noUnusedParameters": true,
+  "erasableSyntaxOnly": true,
+  "noFallthroughCasesInSwitch": true,
+  "noUncheckedSideEffectImports": true
   },
   "include": ["src"]
 }
