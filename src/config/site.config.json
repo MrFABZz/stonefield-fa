@@ -160,6 +160,27 @@
     "requirements": []
   },
 
+  {
+  "legal": {
+    "companyName": "STONEFIELD FA",
+    "contact": "Support via Discord uniquement : https://discord.gg/cSyhHxcN3c",
+
+    "privacyEmail": "",   //  ✅ ajouté
+    "dpoEmail": "",       //  ✅ ajouté
+
+    "lastUpdated": "2025-09-09",
+    "minAge": 16,
+    "copyrightYear": 2025,
+    "dataRetention": {
+      "characterData": "6 mois d'inactivité",
+      "chatLogs": "30 jours",
+      "connectionLogs": "90 jours",
+      "banRecords": "Permanent",
+      "whitelistApplications": "N/A"   // ✅ ajouté
+    }
+  }
+}
+
   "donations": {
     "enabled": true,
     "currency": "EUR",
