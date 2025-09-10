@@ -45,8 +45,8 @@
     "discord": "https://discord.gg/cSyhHxcN3c",
     "maxPlayers": 256,
     "logo": {
-      "type": "image",
-      "content": "/images/logo-stonefield.png"
+  "type": "image",
+  "content": "/images/logoserv1.png"
     },
     "loadingTips": [
       "Toujours rester en immersion RP",
