@@ -194,8 +194,8 @@ export const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
-          src={getAssetUrl("/images/hero/city-night.jpg")} 
-          alt="Los Santos City" 
+          src={getAssetUrl("/logo2.png")} 
+          alt="Logo Stonefield FA" 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-gta-black via-transparent to-gta-black/80" />

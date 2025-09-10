@@ -46,7 +46,7 @@
     "maxPlayers": 256,
     "logo": {
   "type": "image",
-  "content": "/images/logoserv1.png"
+  "content": "/logo1.png"
     },
     "loadingTips": [
       "Toujours rester en immersion RP",
